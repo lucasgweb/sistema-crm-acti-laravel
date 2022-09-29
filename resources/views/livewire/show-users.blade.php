@@ -40,6 +40,6 @@
         @endforeach
     </x-table>
     <div class="pagination justify-content-end">
-    {{ $users->links('vendor.livewire.simple-bootstrap') }}
+    {{ $users->links() }}
     </div>
 </div>

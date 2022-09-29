@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->nullable()->references('id')->on('users')->nullOnDelete();
             $table->string('phone');
             $table->string('email');
-            $table->foreignIdFor(Situation::class)->references('id')->on('situations');
+            $table->foreignIdFor(Situation::class)->default(1)->references('id')->on('situations');
             $table->foreignIdFor(Channel::class)->references('id')->on('channels');
             $table->text('description')->nullable();
             $table->integer('status')->default(1);

@@ -10,6 +10,7 @@ class ShowUsers extends Component
 {
 
     use WithPagination;
+    protected $paginationTheme = 'bootstrap';
 
     public function render()
     {

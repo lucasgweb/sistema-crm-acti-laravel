@@ -32,7 +32,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/leads', [LeadController::class, 'index'])->name('leads.index');
-    Route::post('/leads', [UserController::class, 'store'])->name('lead.store');
-    Route::delete('/lead/{id}', [UserController::class, 'destroy'])->name('lead.destroy');
-    Route::put('/leads',[UserController::class, 'update'])->name('lead.update');
+    Route::post('/leads', [LeadController::class, 'store'])->name('lead.store');
+    Route::delete('/lead/{id}', [LeadController::class, 'destroy'])->name('lead.destroy');
+    Route::put('/leads',[LeadController::class, 'update'])->name('lead.update');
+    Route::put('/lead/update-user',[LeadController::class, 'updateUser'])->name('lead.update-user');
 });

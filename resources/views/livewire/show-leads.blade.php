@@ -1,28 +1,21 @@
-
 <div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-4">
         <div class="col-auto ">
             <label class="form-label">
-                <span class="text-xs fw-400">Fecha Inicio:</span>
-                <div class="input-group flex-nowrap">
-                    <span class="input-group-text" id="basic-addon1"><i data-feather="calendar"></i></span>
-                    <input type="date" class="form-control" placeholder="Fecha inicio" wire:model="startDate">
-                </div>
+                <span class="text-xs fw-400"><b>Fecha Inicio:</b></span>
+                <input type="date" class="form-control" placeholder="Fecha inicio" wire:model="startDate">
             </label>
         </div>
         <div class="col-auto ">
             <label class="form-label">
-                <span class="text-xs fw-400">Fecha Fin:</span>
-                <div class="input-group flex-nowrap">
-                    <span class="input-group-text" id="basic-addon1"><i data-feather="calendar"></i></span>
-                    <input type="date" class="form-control" placeholder="Fecha Fin" wire:model="endDate">
-                </div>
+                <span class="text-xs fw-400"><b>Fecha Fin:</b></span>
+                <input type="date" class="form-control" placeholder="Fecha Fin" wire:model="endDate">
             </label>
         </div>
 
         <div class="col-auto">
             <label class="form-label">
-                <span class="text-xs fw-400">Asesor:</span>
+                <span class="text-xs fw-400"><b>Asesor:</b></span>
                 <select class="form-select" id="autoSizingSelect" wire:model="userId">
                     <option selected value="0">Seleccionar asesor</option>
                     @foreach($users as $user)
@@ -32,12 +25,6 @@
             </label>
         </div>
 
-        <div class="col-auto">
-            <br>
-            <button type="submit" class="btn btn-light bg-primary text-white" value="pesquisar" name="PesquisarEntreDatas">+
-                Consultar</button>
-
-        </div>
     </div>
     <x-table class="table table-bordered table-hover">
         <x-slot:thead>
@@ -73,10 +60,20 @@
                     <div class="d-flex ">
                         <x-table.btn-edit>
                             data-bs-target="#modalEdit"
-                            data-id="{{ $lead->id }}"
-                            data-name="{{ $lead->name }}"
-                            data-email="{{ $lead->email }}"
+                            data-bs-id="{{ $lead->id }}"
+                            data-bs-name="{{ $lead->name }}"
+                            data-bs-email="{{ $lead->email }}"
+                            data-bs-phone="{{ $lead->phone }}"
+                            data-bs-courseId="{{ $lead->course->id }}"
+                            data-bs-courseName="{{ $lead->course->name }}"
+                            data-bs-channelId="{{ $lead->channel->id }}"
+                            data-bs-channelName="{{ $lead->channel->name }}"
+                            data-bs-description="{{ $lead->description }}"
                         </x-table.btn-edit>
+                        <x-table.btn-edit-user>
+                            data-bs-target="#modalEditUser"
+                            data-bs-id="{{ $lead->id }}"
+                        </x-table.btn-edit-user>
                         @cannot('Usuario')
                             <x-table.btn-delete>
                                 {{ route('user.destroy', $lead->id) }}
@@ -88,6 +85,6 @@
         @endforeach
     </x-table>
     <div class="pagination justify-content-end">
-{{ $leads->onEachSide(1)->links('vendor.livewire.simple-bootstrap') }}
+        {{ $leads->onEachSide(2)->links() }}
     </div>
 </div>
