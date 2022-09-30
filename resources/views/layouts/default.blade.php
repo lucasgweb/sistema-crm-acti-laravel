@@ -81,7 +81,7 @@
                     </a>
                     <div class="collapse" id="collapseCategorizacion" data-bs-parent="#accordionSidenav">
                         <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                            <a class="nav-link" href="dashboard-2.html">Categorías</a>
+                            <a class="nav-link" href="{{route('categories.index')}}">Categorías</a>
                             <a class="nav-link" href="dashboard-3.html">Tipos</a>
                             <a class="nav-link" href="dashboard-3.html">Modalidades</a>
                         </nav>

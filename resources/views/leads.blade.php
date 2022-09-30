@@ -16,7 +16,7 @@
     </x-card>
     @cannot('Usuario')
         {{-- Modal de adicionar lead --}}
-        <x-modal title="Agregar Lead" action="{{ route('lead.store') }}" id="modalNew">
+        <x-modal title="Detalles" action="{{ route('lead.store') }}" id="modalNew">
 
 
             <div class="mb-3">
@@ -68,18 +68,17 @@
 
             <div class="mb-3">
                 <label class="small mb-1">Descripción:</label>
-                <textarea class="form-control" rows="3" placeholder="Ingresar Descripción" name="description">
-                </textarea>
+                <textarea class="form-control" rows="3" placeholder="Ingresar Descripción" name="description"></textarea>
             </div>
 
             <x-slot:footer>
-                <x-btn-submit>Agregar Lead</x-btn-submit>
+                <x-btn-submit>Agregar</x-btn-submit>
             </x-slot:footer>
         </x-modal>
         {{-- Fim do modal de adicionar lead --}}
 
         {{-- Modal de editar lead --}}
-        <x-modal title="Editar Lead" action="{{ route('lead.update') }}" id="modalEdit">
+        <x-modal title="Editar" action="{{ route('lead.update') }}" id="modalEdit">
 
             @method('PUT')
             <input type="hidden" name="id" id="getId">
@@ -123,8 +122,7 @@
 
             <div class="mb-2">
                 <label class="small mb-1" for="getComments">Descripción:</label>
-                <textarea id="getComments" class="form-control" rows="3"  name="description">
-                </textarea>
+                <textarea id="getComments" class="form-control" rows="3"  name="description"></textarea>
             </div>
 
             <x-slot:footer>
@@ -135,7 +133,7 @@
         {{-- Fim do modal de editar lead --}}
 
         {{-- Modal de adicionar lead --}}
-        <x-modal title="Agregar Lead" action="{{ route('lead.update-user') }}" id="modalEditUser">
+        <x-modal title="Editar Asesor" action="{{ route('lead.update-user') }}" id="modalEditUser">
 
             @method('PUT')
             <input type="hidden" name="id" id="editUser">
@@ -152,7 +150,7 @@
 
 
             <x-slot:footer>
-                <x-btn-submit>Agregar Lead</x-btn-submit>
+                <x-btn-submit>Guardar Cambios</x-btn-submit>
             </x-slot:footer>
         </x-modal>
         {{-- Fim do modal de adicionar lead --}}

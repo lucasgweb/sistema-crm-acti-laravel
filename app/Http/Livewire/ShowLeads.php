@@ -4,6 +4,9 @@ namespace App\Http\Livewire;
 
 use App\Models\Lead;
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -14,13 +17,11 @@ class ShowLeads extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $startDate = '1980-09-26 23:10:42';
-    public $endDate = '2500-09-26 23:10:42';
+    public $endDate = '2500-09-26 00:00:00';
     public $userId = '0';
 
-    public function render()
+    public function render(): Factory|View|Application
     {
-
-        $leads = Lead::orderByDesc('id')->paginate(10);
 
         if (!empty($this->userId != 0))
         {
