@@ -64,11 +64,11 @@
                         <div class="nav-link-icon"><i class="bi bi-person-badge-fill"></i></div>
                         Usuarios
                     </a>
-                    <a class="nav-link" href="tables.html">
+                    <a class="nav-link" href="{{route('students.index')}}">
                         <div class="nav-link-icon"><i class="bi bi-people-fill"></i></div>
                         Alumnos
                     </a>
-                    <a class="nav-link" href="tables.html">
+                    <a class="nav-link" href="{{route('teachers.index')}}">
                         <div class="nav-link-icon"><i class="bi bi-people-fill"></i></div>
                         Profesores
                     </a>
@@ -82,8 +82,8 @@
                     <div class="collapse" id="collapseCategorizacion" data-bs-parent="#accordionSidenav">
                         <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
                             <a class="nav-link" href="{{route('categories.index')}}">Categorías</a>
-                            <a class="nav-link" href="dashboard-3.html">Tipos</a>
-                            <a class="nav-link" href="dashboard-3.html">Modalidades</a>
+                            <a class="nav-link" href="{{route('types.index')}}">Tipos</a>
+                            <a class="nav-link" href="{{route('modalities.index')}}">Modalidades</a>
                         </nav>
                     </div>
                     <div class="sidenav-menu-heading">CLASIFICACIÓN</div>
@@ -111,10 +111,10 @@
                     </a>
                     <div class="collapse" id="collapseEnrollment" data-bs-parent="#accordionSidenav">
                         <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                            <a class="nav-link" href="dashboard-2.html">Curso</a>
-                            <a class="nav-link" href="dashboard-2.html">Semestre</a>
-                            <a class="nav-link" href="dashboard-2.html">Grupo</a>
-                            <a class="nav-link" href="dashboard-2.html">Matrícula</a>
+                            <a class="nav-link" href="{{route('courses.index')}}">Curso</a>
+                            <a class="nav-link" href="{{route('semesters.index')}}">Semestre</a>
+                            <a class="nav-link" href="{{route('groups.index')}}">Grupo</a>
+                            <a class="nav-link" href="{{route('registers.index')}}">Matrícula</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"

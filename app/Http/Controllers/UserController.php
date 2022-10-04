@@ -85,9 +85,7 @@ class UserController extends Controller
         }
 
 
-        if ($user) {
-            $user->delete();
-        }
+        $user?->delete();
 
         return Redirect::route('users.index');
     }

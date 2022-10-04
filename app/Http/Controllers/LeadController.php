@@ -13,8 +13,6 @@ class LeadController extends Controller
 {
     public function index()
     {
-
-
         $courses = Course::all();
         $users = User::all();
         $channels = Channel::all();
@@ -28,7 +26,6 @@ class LeadController extends Controller
 
     public function store(Request $request)
     {
-
         $validated = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
@@ -38,7 +35,6 @@ class LeadController extends Controller
             'channel_id' => 'required',
             'description' => 'nullable'
         ]);
-
 
         Lead::create($validated);
 
@@ -71,6 +67,14 @@ class LeadController extends Controller
         ]);
 
         Lead::where('id',$validated['id'])->update($validated);
+
+        return Redirect::route('leads.index');
+    }
+    public function destroy($id)
+    {
+        $lead = Lead::find($id);
+
+        $lead?->delete();
 
         return Redirect::route('leads.index');
     }

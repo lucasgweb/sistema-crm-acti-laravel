@@ -16,7 +16,7 @@ class ShowType extends Component
     public function render(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         return view('livewire.show-type',[
-            'types' => Type::paginate(10)
+            'types' => Type::orderByDesc('id')->paginate(10)
         ]);
     }
 }

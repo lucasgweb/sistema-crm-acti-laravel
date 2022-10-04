@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address');
             $table->integer('status')->default(1);
-            $table->integer('remuneration');
+            $table->string('remuneration');
             $table->foreignIdFor(Course::class)->references('id')->on('courses');
             $table->timestamps();
         });

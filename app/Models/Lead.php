@@ -22,22 +22,22 @@ class Lead extends Model
         'description'
     ];
 
-    public function course()
+    public function course(): HasOne
     {
        return $this->hasOne(Course::class,'id', 'course_id');
     }
 
-    public function user()
+    public function user(): HasOne
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
 
-    public function situation()
+    public function situation(): HasOne
     {
         return $this->hasOne(Situation::class, 'id', 'situation_id');
     }
 
-    public function channel()
+    public function channel(): HasOne
     {
         return $this->hasOne(Channel::class,'id','channel_id');
     }

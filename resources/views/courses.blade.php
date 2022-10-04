@@ -1,43 +1,43 @@
 @extends('layouts.default')
 @section('content')
     <x-header icon="bi bi-people-fill">
-        Administrar Modalidades
+        Administrar Cursos
         <x-slot:subtitle>
-            Gestión de Modalidades
+            Gestión de Cursos
         </x-slot:subtitle>
     </x-header>
     <x-card>
-        <x-btn-primary title="+ Agregar Modalidad" class="mb-3">
+        <x-btn-primary title="+ Agregar Curso" class="mb-3">
             data-bs-target="#modalNew"
         </x-btn-primary>
 
-        <livewire:show-modalities/>
+        <livewire:show-type/>
 
     </x-card>
-    {{-- Modal de adicionar modalidade --}}
-    <x-modal title="Detalles" action="{{ route('modality.store') }}" id="modalNew">
+    {{-- Modal de adicionar tipo --}}
+    <x-modal title="Detalles" action="{{ route('type.store') }}" id="modalNew">
 
 
         <div class="mb-3">
             <label class="small mb-1" for="inputName">Tipo:</label>
-            <input class="form-control" id="inputName" type="text" placeholder="Ingresar modalidad" name="name">
+            <input class="form-control" id="inputName" type="text" placeholder="Ingresar tipo" name="name">
         </div>
 
         <x-slot:footer>
             <x-btn-submit>Agregar</x-btn-submit>
         </x-slot:footer>
     </x-modal>
-    {{-- Fim do modal de adicionar modalidade --}}
+    {{-- Fim do modal de adicionar tipo --}}
 
-    {{-- Modal de editar modalidade --}}
-    <x-modal title="Editar" action="{{ route('modality.update') }}" id="modalEdit">
+    {{-- Modal de editar tipo --}}
+    <x-modal title="Editar" action="{{ route('type.update') }}" id="modalEdit">
 
         @method('PUT')
         <input type="hidden" name="id" id="inputId">
 
         <div class="mb-3">
-            <label class="small mb-1" for="inputEditName">Modalidad:</label>
-            <input class="form-control" id="inputEditName" type="text" placeholder="Ingresar modalidad" name="name">
+            <label class="small mb-1" for="inputEditName">Tipo:</label>
+            <input class="form-control" id="inputEditName" type="text" placeholder="Ingresar tipo" name="name">
         </div>
 
         <div class="mb-3">
@@ -53,7 +53,7 @@
             <x-btn-submit>Guardar Cambios</x-btn-submit>
         </x-slot:footer>
     </x-modal>
-    {{-- Fim do modal de editar modalidade --}}
+    {{-- Fim do modal de editar tipo --}}
 
 @endsection
 
@@ -76,4 +76,5 @@
         })
     </script>
 @endpush
+
 

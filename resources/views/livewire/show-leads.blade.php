@@ -76,7 +76,7 @@
                         </x-table.btn-edit-user>
                         @cannot('Usuario')
                             <x-table.btn-delete>
-                                {{ route('user.destroy', $lead->id) }}
+                                {{ route('lead.destroy', $lead->id) }}
                             </x-table.btn-delete>
                         @endcannot
                     </div>

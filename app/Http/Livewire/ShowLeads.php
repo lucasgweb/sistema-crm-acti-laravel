@@ -20,6 +20,11 @@ class ShowLeads extends Component
     public $endDate = '2500-09-26 00:00:00';
     public $userId = '0';
 
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     public function render(): Factory|View|Application
     {
 
