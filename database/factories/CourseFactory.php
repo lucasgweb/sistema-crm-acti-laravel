@@ -19,7 +19,7 @@ class CourseFactory extends Factory
     {
         return [
             'name' => fake()->word(),
-            'code' => fake()->unique()->uuid(),
+            'code' => rand(10000,99999),
             'category_id' => Category::all()->random(),
             'amount_hours' => rand(0,100),
             'description' => fake()->sentence(4),

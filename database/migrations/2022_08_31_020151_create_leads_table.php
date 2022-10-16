@@ -19,7 +19,7 @@ return new class extends Migration
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignIdFor(Course::class)->references('id')->on('courses');
+            $table->foreignIdFor(Course::class)->nullable()->references('id')->on('courses')->nullOnDelete();
             $table->foreignIdFor(User::class)->nullable()->references('id')->on('users')->nullOnDelete();
             $table->string('phone');
             $table->string('email');

@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
     <x-header icon="bi bi-people-fill">
-        Leads
+        Administrar Leads
         <x-slot:subtitle>
             Gestión de Leads
         </x-slot:subtitle>

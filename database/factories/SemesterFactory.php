@@ -17,7 +17,8 @@ class SemesterFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'date_start' => fake()->date('Y-m-d'),
+            'date_end' => fake()->date('Y-m-d'),
         ];
     }
 }

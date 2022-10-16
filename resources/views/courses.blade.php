@@ -14,12 +14,13 @@
         <livewire:show-courses/>
 
     </x-card>
-    {{-- Modal de adicionar tipo --}}
-    <x-modal title="Detalles" action="{{ route('type.store') }}" id="modalNew">
+    {{-- Modal de adicionar curso --}}
+    <x-modal title="Detalles" action="{{ route('course.store') }}" id="modalNew">
 
+        <input type="hidden" name="code" value="{{ $code }}">
         <div class="mb-3">
             <label class="small mb-1" for="inputCode">Codigo:</label>
-            <input class="form-control" id="inputCode" type="text" name="code" value="{{ $code }}" @disabled(1)>
+            <input class="form-control" id="inputCode" type="text" value="{{ $code }}" @disabled(1)>
         </div>
 
         <div class="mb-3">
@@ -36,21 +37,31 @@
             <input class="form-control" id="inputDescription" type="text" placeholder="Ingresar descripción"
                    name="description">
         </div>
+        <div class="mb-3">
+            <label class="small mb-1">Categoria:</label>
+            <select class="form-select" title="Categoria:" name="category_id">
+                <option selected disabled>Seleccione una categoría</option>
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
         <x-slot:footer>
             <x-btn-submit>Agregar</x-btn-submit>
         </x-slot:footer>
     </x-modal>
-    {{-- Fim do modal de adicionar tipo --}}
+    {{-- Fim do modal de adicionar curso --}}
 
-    {{-- Modal de editar tipo --}}
-    <x-modal title="Editar" action="{{ route('type.update') }}" id="modalEdit">
+    {{-- Modal de editar curso --}}
+    <x-modal title="Editar" action="{{ route('course.update') }}" id="modalEdit">
 
         @method('PUT')
         <input type="hidden" name="id" id="getId">
+        <input type="hidden" name="code" id="getCode" value="{{ $code }}">
 
         <div class="mb-3">
-            <label class="small mb-1" for="getCode">Codigo:</label>
-            <input class="form-control" id="getCode" type="text" name="code"  @disabled(1)>
+            <label class="small mb-1" for="seeCode">Codigo:</label>
+            <input class="form-control" id="seeCode" type="text" name="code"  @disabled(1)>
         </div>
 
         <div class="mb-3">
@@ -68,6 +79,15 @@
                    name="description">
         </div>
         <div class="mb-3">
+            <label class="small mb-1">Categoria:</label>
+            <select class="form-select" title="Categoria:" name="category_id">
+                <option id="getCategory" selected></option>
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-3">
             <label class="small mb-1">Estado:</label>
             <select class="form-select" title="Status:" name="status">
                 <option value="1">Activo</option>
@@ -80,7 +100,7 @@
             <x-btn-submit>Guardar Cambios</x-btn-submit>
         </x-slot:footer>
     </x-modal>
-    {{-- Fim do modal de editar tipo --}}
+    {{-- Fim do modal de editar curso --}}
 
 @endsection
 
@@ -97,18 +117,25 @@
             const code = button.getAttribute('data-code')
             const amountHours = button.getAttribute('data-amount-hours')
             const description = button.getAttribute('data-description')
+            const category = button.getAttribute('data-category')
+            const categoryId = button.getAttribute('data-categoryId')
 
             const inputName = modalEdit.querySelector('#getName')
-            const inputCode = modalEdit.querySelector('#getCode')
+            const inputCode = modalEdit.querySelector('#seeCode')
+            const inputHiddenCode = modalEdit.querySelector('#getCode')
             const inputId = modalEdit.querySelector('#getId')
             const inputAmountHours = modalEdit.querySelector('#getAmountHours')
             const inputDescription = modalEdit.querySelector('#getDescription')
+            const inputCategory = modalEdit.querySelector('#getCategory')
 
             inputId.value = id
             inputName.value = name
             inputCode.value = code
+            inputHiddenCode.value = code
             inputAmountHours.value = amountHours
             inputDescription.value = description
+            inputCategory.value = categoryId
+            inputCategory.textContent = category
         })
     </script>
 @endpush

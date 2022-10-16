@@ -21,7 +21,7 @@ class ShowUsers extends Component
     {
 
         return view('livewire.show-users',[
-            'users' => User::orderByDesc('id')->paginate(10)
+            'users' => User::paginate(10)
         ]);
     }
 }

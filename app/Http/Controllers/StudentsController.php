@@ -10,9 +10,8 @@ class StudentsController extends Controller
 {
     public function index()
     {
-        $courses = Course::all();
         return view('students',[
-            'courses' => $courses
+            'courses' => Course::where('status', 1)->get()
         ]);
     }
 

@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
     <x-header icon="bi bi-people-fill">
-        Alumnos
+        Administrar Alumnos
         <x-slot:subtitle>
             Gestión de AlumnoS
         </x-slot:subtitle>

@@ -50,10 +50,10 @@ class UserController extends Controller
         ]);
 
         $user = User::find($validated['id']);
-        $user->name = $validated['name'];
-        $user->email = $validated['email'];
-        $user->status = $validated['status'];
-        $user->password = ($validated['password']) ? bcrypt($validated['password']) : $user->password;
+
+        $validated['password'] = ($validated['password']) ? bcrypt($validated['password']) : $user->password;
+
+        $user->update($validated);
 
         $permissionNames = $user->getPermissionNames();
 

@@ -34,10 +34,7 @@ class ModalityController extends Controller
 
         $modality = Modality::find($validated['id']);
 
-        $modality->name = $validated['name'];
-        $modality->status = $validated['status'];
-
-        $modality->save();
+        $modality->update($validated);
 
         return \Redirect::route('modalities.index');
     }

@@ -24,7 +24,7 @@
                 <td>{{ $teacher->email }}</td>
                 <td>{{ $teacher->phone}}</td>
                 <td>{{ $teacher->address }}</td>
-                <td>{{ $teacher->course->name}}</td>
+                <td>{{  $teacher->course->name }}</td>
                 <td>
                     @if ($teacher->status == 1)
                         <span class="badge bg-success">Activo</span>

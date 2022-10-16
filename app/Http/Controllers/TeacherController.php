@@ -11,7 +11,7 @@ class TeacherController extends Controller
     public function index()
     {
         return view('teachers',[
-            'courses' => Course::all()
+            'courses' => Course::where('status', 1)->get()
         ]);
     }
 
@@ -52,8 +52,6 @@ class TeacherController extends Controller
         if ($teacher)
         {
             $teacher->update($validated);
-
-            $teacher->save();
         }
         return \Redirect::route('teachers.index');
     }

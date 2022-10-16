@@ -20,7 +20,9 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->integer('capacity');
+            $table->integer('status')->default(1);
             $table->foreignIdFor(Teacher::class)->references('id')->on('teachers');
             $table->foreignIdFor(Semester::class)->references('id')->on('semesters');
             $table->foreignIdFor(Course::class)->references('id')->on('courses');

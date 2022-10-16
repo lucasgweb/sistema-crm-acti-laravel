@@ -13,14 +13,10 @@ class LeadController extends Controller
 {
     public function index()
     {
-        $courses = Course::all();
-        $users = User::all();
-        $channels = Channel::all();
-
         return view('leads',[
-            'users' => $users,
-            'courses' => $courses,
-            'channels' => $channels
+            'users' => User::where('status', 1)->get(),
+            'courses' => Course::where('status', 1)->get(),
+            'channels' => Channel::all()
         ]);
     }
 
@@ -54,7 +50,8 @@ class LeadController extends Controller
         ]);
 
 
-        Lead::where('id',$validated['id'])->update($validated);
+       $lead = Lead::where('id',$validated['id']);
+       $lead->update($validated);
 
         return Redirect::route('leads.index');
     }

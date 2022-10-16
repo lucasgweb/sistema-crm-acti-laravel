@@ -4,6 +4,7 @@
             <th>#</th>
             <th>Codigo</th>
             <th>Curso</th>
+            <th>Categoria</th>
             <th>Cant. horas</th>
             <th>Descripción</th>
             <th>Estado</th>
@@ -14,6 +15,7 @@
                 <td>{{ $course->id }}</td>
                 <td>{{ $course->code }}</td>
                 <td>{{ $course->name }}</td>
+                <td>{{ $course->category->name }}</td>
                 <td>{{ $course->amount_hours }}</td>
                 <td>{{ $course->description }}</td>
                 <td>
@@ -30,12 +32,11 @@
                             data-id="{{ $course->id }}"
                             data-name="{{ $course->name }}"
                             data-code="{{ $course->code }}"
+                            data-category="{{ $course->category->name }}"
+                            data-categoryId="{{ $course->category->id }}"
                             data-amount-hours="{{ $course->amount_hours }}"
                             data-description="{{ $course->description }}"
                         </x-table.btn-edit>
-                        <x-table.btn-delete>
-                            {{ route('course.destroy', $course->id) }}
-                        </x-table.btn-delete>
                     </div>
                 </td>
             </tr>

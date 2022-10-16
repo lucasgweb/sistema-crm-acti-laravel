@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
     <x-header icon="bi bi-people-fill">
-        Profesor
+        Administrar Profesores
         <x-slot:subtitle>
             Gestión de Profesor
         </x-slot:subtitle>

@@ -2,6 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Course;
+use App\Models\Modality;
+use App\Models\Semester;
+use App\Models\Teacher;
+use App\Models\Type;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +22,13 @@ class GroupFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->word(),
+            'capacity' => rand(30,70),
+            'teacher_id' => Teacher::all()->random(),
+            'semester_id' => Semester::all()->random(),
+            'course_id' => Course::all()->random(),
+            'type_id' => Type::all()->random(),
+            'modality_id' => Modality::all()->random()
         ];
     }
 }

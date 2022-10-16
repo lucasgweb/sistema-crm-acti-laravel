@@ -34,10 +34,7 @@ class TypeController extends Controller
 
         $type = Type::find($validated['id']);
 
-        $type->name = $validated['name'];
-        $type->status = $validated['status'];
-
-        $type->save();
+        $type->update($validated);
 
         return \Redirect::route('types.index');
     }

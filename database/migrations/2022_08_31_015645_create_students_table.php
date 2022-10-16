@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address');
             $table->integer('status')->default(1);
-            $table->foreignIdFor(Course::class)->references('id')->on('courses');
+            $table->foreignIdFor(Course::class)->nullable()->references('id')->on('courses')->nullOnDelete();
             $table->timestamps();
         });
     }

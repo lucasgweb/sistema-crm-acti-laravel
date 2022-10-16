@@ -33,11 +33,7 @@ class CategoryController extends Controller
 
 
         $category = Category::find($validated['id']);
-
-        $category->name = $validated['name'];
-        $category->status = $validated['status'];
-
-        $category->save();
+        $category->update($validated);
 
         return \Redirect::route('categories.index');
     }
