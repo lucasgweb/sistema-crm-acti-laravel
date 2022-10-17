@@ -21,10 +21,13 @@ class StudentsController extends Controller
             'name' => 'required|string',
             'document' => 'required',
             'email' => 'required|email',
-            'phone' => 'required',
-            'course_id' => 'required',
+            'phone' => 'required|numeric',
+            'course_id' => 'required|numeric',
             'address' => 'required|string'
         ]);
+
+        $validated['name'] = ucwords($validated['name']);
+        $validated['email'] = strtolower($validated['email']);
 
         Student::create($validated);
 
@@ -37,13 +40,16 @@ class StudentsController extends Controller
             'id' => 'required',
             'name' => 'required|string',
             'document' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'phone' => 'required',
-            'course_id' => 'required',
+            'course_id' => 'required|numeric',
             'address' => 'required|string',
-            'status' => 'required'
+            'status' => 'required|numeric'
         ]);
 
+        $validated['name'] = ucwords($validated['name']);
+        $validated['email'] = strtolower($validated['email']);
+        
         $student = Student::where('id',$validated['id'])->first();
 
         if ($student)

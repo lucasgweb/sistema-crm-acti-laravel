@@ -17,14 +17,14 @@
             <th>Estado</th>
             <th>Acciones</th>
         </x-slot:thead>
-       @foreach ($students as $student)
+        @foreach ($students as $student)
             <tr>
                 <td>{{ $student->name }}</td>
                 <td>{{ $student->document }}</td>
                 <td>{{ $student->email }}</td>
-                <td>{{ $student->phone}}</td>
+                <td>{{ $student->phone }}</td>
                 <td>{{ $student->address }}</td>
-                <td>{{ $student->course->name}}</td>
+                <td>{{ $student->course->name }}</td>
                 <td>
                     @if ($student->status == 1)
                         <span class="badge bg-success">Activo</span>
@@ -40,14 +40,16 @@
                             data-name="{{ $student->name }}"
                             data-phone="{{ $student->phone }}"
                             data-email="{{ $student->email }}"
-                            data-document="{{ $student->document}}"
+                            data-document="{{ $student->document }}"
                             data-course-id="{{ $student->course->id }}"
                             data-course="{{ $student->course->name }}"
                             data-address="{{ $student->address }}"
                         </x-table.btn-edit>
+                        @cannot('Usuario')
                             <x-table.btn-delete>
                                 {{ route('student.destroy', $student->id) }}
                             </x-table.btn-delete>
+                        @endcannot
                     </div>
                 </td>
             </tr>
@@ -55,7 +57,6 @@
 
     </x-table>
     <div class="pagination justify-content-end">
-        {{$students->links()}}
+        {{ $students->links() }}
     </div>
 </div>
-

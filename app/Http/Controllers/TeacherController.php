@@ -21,12 +21,14 @@ class TeacherController extends Controller
             'name' => 'required|string',
             'document' => 'required',
             'email' => 'required|email',
-            'phone' => 'required',
-            'course_id' => 'required',
+            'phone' => 'required|numeric',
+            'course_id' => 'required|numeric',
             'address' => 'required|string',
-            'remuneration' => 'required'
+            'remuneration' => 'required|numeric'
         ]);
 
+        $validated['name'] = ucwords($validated['name']);
+        $validated['email'] = strtolower($validated['email']);
 
         Teacher::create($validated);
 
@@ -36,17 +38,20 @@ class TeacherController extends Controller
     public function update(Request $request)
     {
         $validated = $request->validate([
-            'id' => 'required',
+            'id' => 'required|numeric',
             'name' => 'required|string',
             'document' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'phone' => 'required',
-            'course_id' => 'required',
+            'course_id' => 'required|numeric',
             'address' => 'required|string',
-            'status' => 'required',
+            'status' => 'required|numeric',
             'remuneration' => 'required'
         ]);
 
+        $validated['name'] = ucwords($validated['name']);
+        $validated['email'] = strtolower($validated['email']);
+        
         $teacher = Teacher::where('id',$validated['id'])->first();
 
         if ($teacher)

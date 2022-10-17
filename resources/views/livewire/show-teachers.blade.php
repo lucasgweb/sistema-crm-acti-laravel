@@ -46,9 +46,11 @@
                             data-course="{{ $teacher->course->name }}"
                             data-address="{{ $teacher->address }}"
                         </x-table.btn-edit>
+                        @cannot('Usuario')
                         <x-table.btn-delete>
                             {{ route('teacher.destroy', $teacher->id) }}
                         </x-table.btn-delete>
+                        @endcannot
                     </div>
                 </td>
             </tr>

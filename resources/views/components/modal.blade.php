@@ -10,7 +10,7 @@
                     @csrf
                     {{$slot}}
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cerrar</button>
                         {{$footer}}
                     </div>
                 </form>

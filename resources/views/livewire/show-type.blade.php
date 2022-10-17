@@ -24,9 +24,11 @@
                             data-id="{{ $type->id }}"
                             data-name="{{ $type->name }}"
                         </x-table.btn-edit>
-                        <x-table.btn-delete>
-                            {{ route('type.destroy', $type->id) }}
-                        </x-table.btn-delete>
+                        @cannot('Usuario')
+                            <x-table.btn-delete>
+                                {{ route('type.destroy', $type->id) }}
+                            </x-table.btn-delete>
+                        @endcannot
                     </div>
                 </td>
             </tr>
@@ -36,4 +38,3 @@
         {{ $types->links() }}
     </div>
 </div>
-

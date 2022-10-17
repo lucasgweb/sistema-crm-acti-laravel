@@ -8,25 +8,35 @@ use Illuminate\Database\Eloquent\Model;
 class Group extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'capacity',
+        'teacher_id',
+        'semester_id',
+        'course_id',
+        'modality_id',
+        'type_id',
+        'status'
+    ];
 
     public function teacher()
     {
-        return $this->hasOne(Teacher::class,'id','teacher_id');
+        return $this->hasOne(Teacher::class, 'id', 'teacher_id');
     }
     public function semester()
     {
-        return $this->hasOne(Semester::class,'id','semester_id');
+        return $this->hasOne(Semester::class, 'id', 'semester_id');
     }
     public function course()
     {
-        return $this->hasOne(Course::class,'id','course_id');
+        return $this->hasOne(Course::class, 'id', 'course_id');
     }
     public function modality()
     {
-        return $this->hasOne(Modality::class,'id','modality_id');
+        return $this->hasOne(Modality::class, 'id', 'modality_id');
     }
     public function type()
     {
-        return $this->hasOne(Type::class,'id','type_id');
+        return $this->hasOne(Type::class, 'id', 'type_id');
     }
 }

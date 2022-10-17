@@ -11,7 +11,7 @@
             data-bs-target="#modalNew"
         </x-btn-primary>
 
-        <livewire:show-leads/>
+        <livewire:show-leads />
 
     </x-card>
     @cannot('Usuario')
@@ -26,8 +26,7 @@
 
             <div class="mb-3">
                 <label class="small mb-1" for="inputEmailAddress">Email:</label>
-                <input class="form-control" id="inputEmailAddress" type="email" placeholder="Ingresar Email"
-                       name="email">
+                <input class="form-control" id="inputEmailAddress" type="email" placeholder="Ingresar Email" name="email">
             </div>
 
             <div class="mb-3">
@@ -39,8 +38,8 @@
                 <label class="small mb-1">Asignar Asesor(a):</label>
                 <select class="form-select" name="user_id">
                     <option selected disabled>Seleccionar Asesor(a):</option>
-                    @foreach($users as $user)
-                        <option value="{{$user->id}}">{{$user->name}}</option>
+                    @foreach ($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -50,8 +49,8 @@
                 <label class="small mb-1">Curso:</label>
                 <select class="form-select" name="course_id">
                     <option selected disabled>Seleccione el Curso:</option>
-                    @foreach($courses as $course)
-                        <option value="{{$course->id}}">{{$course->name}}</option>
+                    @foreach ($courses as $course)
+                        <option value="{{ $course->id }}">{{ $course->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -60,8 +59,8 @@
                 <label class="small mb-1">Medio:</label>
                 <select class="form-select" name="channel_id">
                     <option selected disabled>Seleccione el Medio:</option>
-                    @foreach($channels as $channel)
-                        <option value="{{$channel->id}}">{{$channel->name}}</option>
+                    @foreach ($channels as $channel)
+                        <option value="{{ $channel->id }}">{{ $channel->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -84,19 +83,18 @@
             <input type="hidden" name="id" id="getId">
 
             <div class="mb-2">
-                <label class="small mb-1" for="getName" >Nombres y Apellidos del Lead:</label>
+                <label class="small mb-1" for="getName">Nombres y Apellidos del Lead:</label>
                 <input class="form-control" id="getName" type="text" name="name">
             </div>
 
             <div class="mb-2">
                 <label class="small mb-1" for="getEmail">Email:</label>
-                <input class="form-control" id="getEmail" type="email"
-                       name="email">
+                <input class="form-control" id="getEmail" type="email" name="email">
             </div>
 
             <div class="mb-2">
                 <label class="small mb-1" for="getPhone">Teléfono/Celular</label>
-                <input class="form-control" id="getPhone" type="text"  name="phone">
+                <input class="form-control" id="getPhone" type="text" name="phone">
             </div>
 
 
@@ -104,8 +102,8 @@
                 <label class="small mb-1" for="selectCourse">Curso:</label>
                 <select id="selectCourse" class="form-select" name="course_id">
                     <option id="getCourse" selected></option>
-                    @foreach($courses as $course)
-                        <option value="{{$course->id}}">{{$course->name}}</option>
+                    @foreach ($courses as $course)
+                        <option value="{{ $course->id }}">{{ $course->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -114,15 +112,15 @@
                 <label class="small mb-1" for="selectChannel">Medio:</label>
                 <select id="selectChannel" class="form-select" name="channel_id">
                     <option id="getChannel" selected></option>
-                    @foreach($channels as $channel)
-                        <option value="{{$channel->id}}">{{$channel->name}}</option>
+                    @foreach ($channels as $channel)
+                        <option value="{{ $channel->id }}">{{ $channel->name }}</option>
                     @endforeach
                 </select>
             </div>
 
             <div class="mb-2">
                 <label class="small mb-1" for="getComments">Descripción:</label>
-                <textarea id="getComments" class="form-control" rows="3"  name="description"></textarea>
+                <textarea id="getComments" class="form-control" rows="3" name="description"></textarea>
             </div>
 
             <x-slot:footer>
@@ -142,8 +140,8 @@
                 <label class="small mb-1">Asignar Asesor(a):</label>
                 <select class="form-select" name="user_id">
                     <option selected disabled>Seleccionar Asesor(a):</option>
-                    @foreach($users as $user)
-                        <option value="{{$user->id}}">{{$user->name}}</option>
+                    @foreach ($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -210,7 +208,6 @@
 
                 inputId.value = id
             })
-
         </script>
     @endpush
 @endcannot

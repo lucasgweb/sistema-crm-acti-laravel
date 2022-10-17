@@ -11,7 +11,7 @@
             data-bs-target="#modalNew"
         </x-btn-primary>
 
-        <livewire:show-type/>
+        <livewire:show-type />
 
     </x-card>
     {{-- Modal de adicionar tipo --}}
@@ -54,7 +54,6 @@
         </x-slot:footer>
     </x-modal>
     {{-- Fim do modal de editar tipo --}}
-
 @endsection
 
 @push('script')
@@ -76,4 +75,3 @@
         })
     </script>
 @endpush
-

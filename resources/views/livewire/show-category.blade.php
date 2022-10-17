@@ -24,9 +24,11 @@
                             data-id="{{ $category->id }}"
                             data-name="{{ $category->name }}"
                         </x-table.btn-edit>
+                        @cannot('Usuario')
                             <x-table.btn-delete>
                                 {{ route('category.destroy', $category->id) }}
                             </x-table.btn-delete>
+                        @endcannot
                     </div>
                 </td>
             </tr>

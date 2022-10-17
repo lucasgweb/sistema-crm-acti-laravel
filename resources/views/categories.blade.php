@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-    <x-header icon="bi bi-people-fill">
+    <x-header>
         Administrar Categorías
         <x-slot:subtitle>
             Gestión de Categorías
@@ -11,50 +11,53 @@
             data-bs-target="#modalNew"
         </x-btn-primary>
 
-        <livewire:show-category/>
+        <livewire:show-category />
 
     </x-card>
-    {{-- Modal de adicionar categoria --}}
-    <x-modal title="Detalles de la Categoría" action="{{ route('category.store') }}" id="modalNew">
+    @cannot('Usuario')
+        {{-- Modal de adicionar categoria --}}
+        <x-modal title="Detalles de la Categoría" action="{{ route('category.store') }}" id="modalNew">
+            <div class="mb-3">
+                <label class="small mb-1" for="inputName">Categoría:</label>
+                <input class="form-control" id="inputName" type="text" placeholder="Ingresar categoría" name="name">
+            </div>
 
+            <x-slot:footer>
+                <x-btn-submit>Agregar Categoría</x-btn-submit>
+            </x-slot:footer>
+        </x-modal>
+        {{-- Fim do modal de adicionar categoria --}}
 
-        <div class="mb-3">
-            <label class="small mb-1" for="inputName">Categoría:</label>
-            <input class="form-control" id="inputName" type="text" placeholder="Ingresar categoría" name="name">
-        </div>
+        {{-- Modal de editar categoria --}}
+        <x-modal title="Editar Categoría" action="{{ route('category.update') }}" id="modalEdit">
 
-        <x-slot:footer>
-            <x-btn-submit>Agregar Categoría</x-btn-submit>
-        </x-slot:footer>
-    </x-modal>
-    {{-- Fim do modal de adicionar categoria--}}
+            @method('PUT')
+            <input type="hidden" name="id" id="inputId">
 
-    {{-- Modal de editar categoria --}}
-    <x-modal title="Editar" action="{{ route('category.update') }}" id="modalEdit">
-
-        @method('PUT')
-        <input type="hidden" name="id" id="inputId">
-
-        <div class="mb-3">
-            <label class="small mb-1" for="inputEditName">Categoría:</label>
-            <input class="form-control" id="inputEditName" type="text" placeholder="Ingresar categoría" name="name">
-        </div>
-
-        <div class="mb-3">
-            <label class="small mb-1">Estado:</label>
-            <select class="form-select" title="Status:" name="status">
-                <option value="1">Activo</option>
-                <option value="0">Inactivo</option>
-            </select>
-        </div>
-
-
-        <x-slot:footer>
-            <x-btn-submit>Guardar Cambios</x-btn-submit>
-        </x-slot:footer>
-    </x-modal>
-    {{-- Fim do modal de editar categoria --}}
-
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="mb-3">
+                        <label class="small mb-1" for="inputEditName">Categoría:</label>
+                        <input class="form-control" id="inputEditName" type="text" placeholder="Ingresar categoría"
+                            name="name">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="mb-3">
+                        <label class="small mb-1">Estado:</label>
+                        <select class="form-select" title="Status:" name="status">
+                            <option value="1">Activo</option>
+                            <option value="0">Inactivo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <x-slot:footer>
+                <x-btn-submit>Guardar Cambios</x-btn-submit>
+            </x-slot:footer>
+        </x-modal>
+        {{-- Fim do modal de editar categoria --}}
+    @endcannot
 @endsection
 
 @push('script')
@@ -76,4 +79,3 @@
         })
     </script>
 @endpush
-

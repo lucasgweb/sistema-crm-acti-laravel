@@ -31,7 +31,9 @@ class UserController extends Controller
             'role' => 'required|string'
         ]);
 
+        $validated['name'] = ucwords(trim($validated['name']));
         $validated['password'] = bcrypt($validated['password']);
+        $validated['email'] = strtolower($validated['email']);
 
         User::create($validated)->givePermissionTo($validated['role']);
 
@@ -51,7 +53,9 @@ class UserController extends Controller
 
         $user = User::find($validated['id']);
 
+        $validated['name'] = ucwords(trim($validated['name']));
         $validated['password'] = ($validated['password']) ? bcrypt($validated['password']) : $user->password;
+        $validated['email'] = strtolower($validated['email']);
 
         $user->update($validated);
 
@@ -76,7 +80,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-
         $leads = Lead::where('user_id', $id)->get();
 
         foreach ($leads as $lead) {
