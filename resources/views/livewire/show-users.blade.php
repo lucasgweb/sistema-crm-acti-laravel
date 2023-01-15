@@ -13,7 +13,7 @@
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                <td>{{ $user->can('Administrador') || $user->can('Master') ? 'Administrador' : 'Asesor' }}
+                <td>{{ $user->can('Administrador')  ? 'Administrador' : 'Asesor' }}
                 <td>
                     @if ($user->status == 1)
                         <span class="badge bg-success">Activo</span>

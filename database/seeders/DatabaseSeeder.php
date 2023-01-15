@@ -13,20 +13,30 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        \App\Models\User::factory(15)->create();
-        \App\Models\Category::factory(17)->create();
-        \App\Models\Channel::factory(17)->create();
-        \App\Models\Situation::factory(12)->create();
-        \App\Models\Course::factory(12)->create();
-        \App\Models\Lead::factory(100)->create();
-        \App\Models\Type::factory(13)->create();
-        \App\Models\Modality::factory(13)->create();
-        \App\Models\Student::factory(24)->create();
-        \App\Models\Teacher::factory(20)->create();
-        \App\Models\Semester::factory(13)->create();
-        \App\Models\Group::factory(5)->create();
+    public function run(){
 
+     $user = \App\Models\User::factory()->create([
+        'name' => 'Lucas Godoy',
+        'email' => 'test@example.com',
+        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+    ]);
+
+        $this->call([
+            PermissionSeeder::class,
+            UserSeeder::class,
+            CategorySeeder::class,
+            ChannelSeeder::class,
+            SituationSeeder::class,
+            CourseSeeder::class,
+            LeadSeeder::class,
+            TypeSeeder::class,
+            ModalitySeeder::class,
+            StudentSeeder::class,
+            TeacherSeeder::class,
+            SemesterSeeder::class,
+            GroupSeeder::class
+        ]);
+
+        $user->givePermissionTo('Administrador');
     }
-}
+};

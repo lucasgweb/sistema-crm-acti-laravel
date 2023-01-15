@@ -6,6 +6,7 @@ use App\Models\Lead;
 use App\Models\Permission;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
@@ -80,15 +81,19 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        $leads = Lead::where('user_id', $id)->get();
 
-        foreach ($leads as $lead) {
-            $lead->status = 0;
-            $lead->save();
+        if ($user->id != Auth()->user()->id) {
+            $leads = Lead::where('user_id', $id)->get();
+
+            foreach ($leads as $lead) {
+                $lead->status = 0;
+                $lead->save();
+            }
+
+
+            $user?->delete();
         }
 
-
-        $user?->delete();
 
         return Redirect::route('users.index');
     }

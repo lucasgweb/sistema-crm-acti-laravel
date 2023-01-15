@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <title>ACTI</title>
+    <title>ACTI - Sistema</title>
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
     <link href="{{asset('assets/css/styles.css')}}" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
             crossorigin="anonymous"></script>
@@ -88,7 +89,7 @@
                     </div>
                     <div class="sidenav-menu-heading">CLASIFICACIÓN</div>
                     <!-- Sidenav Accordion (Dashboard)-->
-                    <a class="nav-link" href="tables.html">
+                    <a class="nav-link" href="#">
                         <div class="nav-link-icon"><i class="bi bi-grid-1x2-fill"></i></div>
                         Promociones
                     </a>
@@ -100,7 +101,7 @@
                     </a>
                     <div class="collapse" id="collapseSales" data-bs-parent="#accordionSidenav">
                         <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                            <a class="nav-link" href="dashboard-2.html">Ventas</a>
+                            <a class="nav-link" href="#">Ventas</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
@@ -125,7 +126,7 @@
                     </a>
                     <div class="collapse" id="collapseTreasury" data-bs-parent="#accordionSidenav">
                         <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                            <a class="nav-link" href="dashboard-2.html">Pagos</a>
+                            <a class="nav-link" href="#">Pagos</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
@@ -137,9 +138,9 @@
                     <div class="collapse" id="collapseCrm" data-bs-parent="#accordionSidenav">
                         <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
                             <a class="nav-link" href="{{route('leads.index')}}">Leads</a>
-                            <a class="nav-link" href="dashboard-2.html">Mis Leads</a>
-                            <a class="nav-link" href="dashboard-2.html">Leads Inactivos</a>
-                            <a class="nav-link" href="dashboard-2.html">Importar Leads</a>
+                            <a class="nav-link" href="#">Mis Leads</a>
+                            <a class="nav-link" href="#">Leads Inactivos</a>
+                            <a class="nav-link" href="#">Importar Leads</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
@@ -150,8 +151,8 @@
                     </a>
                     <div class="collapse" id="collapseReports" data-bs-parent="#accordionSidenav">
                         <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                            <a class="nav-link" href="dashboard-2.html">Reporte de Leads</a>
-                            <a class="nav-link" href="dashboard-2.html">Reporte de Leads por Vendedor</a>
+                            <a class="nav-link" href="#">Reporte de Leads</a>
+                            <a class="nav-link" href="#">Reporte de Leads por Vendedor</a>
                         </nav>
                     </div>
                 </div>
@@ -172,7 +173,7 @@
         <footer class="footer-admin mt-auto footer-light">
             <div class="container-xl px-4">
                 <div class="row">
-                    <div class="col-md-6 small">Copyright &copy; lucasweb.me 2021</div>
+                    <div class="col-md-6 small">Copyright &copy; ACTI 2023</div>
                     <div class="col-md-6 text-md-end small">
                         <p>Creado con ❤️ by LucasWeb</p>
                     </div>

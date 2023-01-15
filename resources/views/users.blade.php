@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-    <x-header >
+    <x-header>
         Administrar Usuarios
         <x-slot:subtitle>
             Gestión de Usuarios

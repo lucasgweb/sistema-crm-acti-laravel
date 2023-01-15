@@ -30,9 +30,18 @@ class ShowLeads extends Component
 
         if (!empty($this->userId != 0))
         {
-            $leads = Lead::orderByDesc('id')->where('created_at','>',$this->startDate)->where('created_at','<',$this->endDate)->where('user_id',$this->userId)->paginate(10);
+            $leads = Lead::orderByDesc('id')
+            ->where('created_at','>',$this->startDate)
+            ->where('created_at','<',$this->endDate)
+            ->where('status','!=', 0)
+            ->where('user_id',$this->userId)
+            ->paginate(10);
         } else {
-            $leads = Lead::orderByDesc('id')->where('created_at','>',$this->startDate)->where('created_at','<',$this->endDate)->paginate(10);
+            $leads = Lead::orderByDesc('id')
+            ->where('created_at','>',$this->startDate)
+            ->where('created_at','<',$this->endDate)
+            ->where('status','!=', 0)
+            ->paginate(10);
         }
 
         return view('livewire.show-leads', [

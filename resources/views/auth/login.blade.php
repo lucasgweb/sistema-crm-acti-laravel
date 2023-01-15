@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <title>Login - SB Admin Pro</title>
+    <title>ACTI - Login</title>
     <link href="{{asset('assets/css/styles.css')}}" rel="stylesheet"/>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png"/>
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
     <script data-search-pseudo-elements defer
             src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
             crossorigin="anonymous"></script>
@@ -35,11 +35,11 @@
                                     <div class="mb-3">
                                         <label class="small mb-1" for="inputEmailAddress">Correo:</label>
                                         <input class="form-control" id="inputEmailAddress" type="email"
-                                               placeholder="Ingresar correo" name="email" value="{{old('email')}}"/>
+                                               placeholder="Ingresar correo" name="email" value="{{(old('email'))? old('email'): 'test@example.com'}}"/>
                                     </div>
                                     <div class="mb-3">
                                         <label class="small mb-1" for="inputPassword">Contraseña:</label>
-                                        <input class="form-control" id="inputPassword" name="password" type="password"
+                                        <input class="form-control" id="inputPassword" name="password" value="password" type="password"
                                                placeholder="Ingresar contraseña" />
                                     </div>
                                     <div class="mb-3">
@@ -63,7 +63,7 @@
         <footer class="footer-admin mt-auto footer-dark">
             <div class="container-xl px-4">
                 <div class="row">
-                    <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
+                    <div class="col-md-6 small">Copyright &copy; ACTI 2023</div>
                     <div class="col-md-6 text-md-end small">
                         <a href="#!">Privacy Policy</a>
                         &middot;
