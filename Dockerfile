@@ -20,11 +20,11 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www
 
-# Copy composer files
+# Copy composer files first
 COPY composer.json composer.lock ./
 
-# Install dependencies
-RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
+# Install dependencies INCLUDING dev dependencies (for Faker)
+RUN composer install --optimize-autoloader --no-interaction --no-scripts
 
 # Copy application files
 COPY . .
@@ -43,6 +43,9 @@ RUN touch database/database.sqlite
 
 # Set permissions
 RUN chmod -R 775 storage bootstrap/cache database
+
+# Run composer scripts after all files are copied
+RUN composer dump-autoload --optimize
 
 # Expose port 8000
 EXPOSE 8000
